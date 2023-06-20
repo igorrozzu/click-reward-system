@@ -14,7 +14,7 @@ API supports 3 requests:
 * currency (required, enum [GBP, EUR])
 * ratio (required, float)
 
-There is a postman collection [api_postman_collection.json](api_postman_collection.json) in the root of the project to try these requests.
+There is a postman collection [api_postman_collection.json](api_postman_collection.json) in the app folder of the project to try these requests.
 
 
 ## How to start project
