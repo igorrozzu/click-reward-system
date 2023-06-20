@@ -1,0 +1,96 @@
+{
+	"info": {
+		"_postman_id": "9662a926-313a-4cf6-9df3-d89c65a3daeb",
+		"name": "Clarify",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "2818636"
+	},
+	"item": [
+		{
+			"name": "balance",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost/2023-06/balance?campaignId=1&currency=USD",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"path": [
+						"2023-06",
+						"balance"
+					],
+					"query": [
+						{
+							"key": "campaignId",
+							"value": "1"
+						},
+						{
+							"key": "currency",
+							"value": "USD"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "click",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"campaignId\": 1\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost/2023-06/click",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"path": [
+						"2023-06",
+						"click"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "currency-ratio",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"currency\": \"EUR\",\n    \"ratio\": 0.93\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost/2023-06/currency/ratio",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"path": [
+						"2023-06",
+						"currency",
+						"ratio"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

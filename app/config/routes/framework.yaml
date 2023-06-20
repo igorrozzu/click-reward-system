@@ -1,0 +1,7 @@
+app_bundle_prefix:
+    path: /prefix
+
+when@dev:
+    _errors:
+        resource: '@FrameworkBundle/Resources/config/routing/errors.xml'
+        prefix: /_error

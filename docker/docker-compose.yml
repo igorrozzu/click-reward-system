@@ -1,0 +1,49 @@
+version: '3.9'
+services:
+  php:
+    build: ./php
+    container_name: ${COMPOSE_PROJECT_NAME}-php
+    environment:
+      - POSTGRES_HOST=${DB_HOST}
+      - POSTGRES_PORT=${DB_PORT}
+      - POSTGRES_DB=${DB_DATABASE}
+      - POSTGRES_USER=${DB_USER}
+      - POSTGRES_PASSWORD=${DB_PASSWORD}
+    ports:
+      - "9000:9000"
+    volumes:
+      - ./data/php:/var/php
+      - ../app:/var/www/html
+    depends_on:
+      - postgres
+    networks:
+      - bridge
+  postgres:
+    image: postgres:15.1-alpine
+    container_name: ${COMPOSE_PROJECT_NAME}-postgres
+    environment:
+      - POSTGRES_DB=${DB_DATABASE}
+      - POSTGRES_USER=${DB_USER}
+      - POSTGRES_PASSWORD=${DB_PASSWORD}
+    volumes:
+      - ./data/postgresql:/var/lib/postgresql/data
+    ports:
+      - "5432:5432"
+    networks:
+      - bridge
+  nginx:
+    image: nginx:latest
+    container_name: ${COMPOSE_PROJECT_NAME}-nginx
+    ports:
+      - "80:80"
+    volumes:
+      - ./nginx/nginx.conf:/etc/nginx/nginx.conf
+      - ../app:/var/www/html
+    depends_on:
+      - php
+    networks:
+      - bridge
+
+networks:
+  bridge:
+    driver: bridge
